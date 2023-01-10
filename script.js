@@ -42,7 +42,9 @@ function generatePassword(length, charsArr){
   var upperCaseLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", ]
   var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
   var specialChars = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "+", "-", ".", "`", "~", "|", "<", ">", "=", "-", "_"]
-  var newArr = []
+  var newArr = [];
+  //var newArr2 = [];
+  var strPassword = "";
 
   for(var i = 0; i < charsArr.length; i++){
     if(charsArr[i]){
@@ -57,16 +59,20 @@ function generatePassword(length, charsArr){
         newArr.push(numbers)
       }
       else if(i === 3){
-        newArr.push()
+        newArr.push(specialChars)
       }
-      console.log(newArr)
+      //console.log(newArr)
     }
-
+    
 
   }
-    for(var i = 0; i < newArr.length; i++){
-      
-    }
-  
+  //console.log(newArr)
+  for(i = 0; i < length; i++){
+    let newArr2 = [];
+    newArr2 = newArr[ Math.floor(Math.random() * newArr.length)];
+    strPassword = strPassword + newArr2[Math.floor(Math.random() * newArr2.length)];
+    console.log(strPassword)
+  }
+  return strPassword;
 
 }
