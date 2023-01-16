@@ -5,19 +5,11 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   //give user prompt asking for password length
   let passLength = prompt("Choose password length: Must be between 8 and 128");
-  //validate passLength continue if ok continue if false break
-  if (isNaN(passLength) || passLength === null){
-    confirm("You must enter a valid number");
+  //validate passLength continue if ok continue if false return
+  if(!validatePassLength(passLength)){
     return;
   }
-  else if( passLength < 8){
-    confirm("Length must be at least 8");
-    return;
-  }
-  else if(passLength > 128){
-    confirm("Length must be less than 129");
-    return;
-  }
+
  
   //prompt user of character types to use
   var useLower = confirm("Do you want to use lowercase letters");
@@ -42,6 +34,22 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
+function validatePassLength(passLength){
+  if (isNaN(passLength) || passLength === null){
+    confirm("You must enter a valid number");
+    return false;
+  }
+  else if( passLength < 8){
+    confirm("Length must be at least 8");
+    return false;
+  }
+  else if(passLength > 128){
+    confirm("Length must be less than 129");
+    return false;
+  }
+return true;
+}
+
 
 
 function generatePassword(length, charsArr) {
@@ -52,7 +60,7 @@ function generatePassword(length, charsArr) {
   var newArr = [];
   //var newArr2 = [];
   var strPassword = "";
-
+  //console.log(charsArr)
   for (var i = 0; i < charsArr.length; i++) {
     if (charsArr[i]) {
       if (i === 0) {
@@ -78,8 +86,9 @@ function generatePassword(length, charsArr) {
     let newArr2 = [];
     newArr2 = newArr[Math.floor(Math.random() * newArr.length)];
     strPassword = strPassword + newArr2[Math.floor(Math.random() * newArr2.length)];
-    console.log(strPassword)
+   
   }
+  console.log(strPassword.length)
   return strPassword;
 
 }
