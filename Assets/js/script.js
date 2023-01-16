@@ -4,7 +4,7 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function writePassword() {
   //give user prompt asking for password length
-  let passLength = prompt("Choose password length: Must be between 8 and 128");
+  let passLength = prompt("Choose password length: Must be between 8 and 128 characters");
   //validate passLength continue if ok continue if false return
   if(!validatePassLength(passLength)){
     return;
@@ -12,9 +12,9 @@ function writePassword() {
 
  
   //prompt user of character types to use
-  var useLower = confirm("Do you want to use lowercase letters");
-  var useUpper = confirm("Do you want to use uppercase letters");
-  var useNums = confirm("Do you want to use numbers");
+  var useLower = confirm("Do you want to include lowercase letters");
+  var useUpper = confirm("Do you want to include uppercase letters");
+  var useNums = confirm("Do you want to include numbers");
   var useSpecial = confirm("Do you want to include special characters");
 
   //validate at least on character type chosen if not return
